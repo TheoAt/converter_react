@@ -10,15 +10,19 @@ export default function CurrencyConverter() {
     const [convertedAmount, setConvertedAmount] = useState()
 
     async function fetchExchangeRate() {
-        const apiResponse = await fetch(`https://open.er-api.com/v6/latest/${fromCurrency}`, {
-            method: 'GET'
-        })
+        try {
+            const apiResponse = await fetch(`https://open.er-api.com/v6/latest/${fromCurrency}`, {
+                method: 'GET'
+            })
 
-        const result = await apiResponse.json()
+            const result = await apiResponse.json()
 
-        const calculateRate = result?.rates[toCurrency]
-        setExchangeRate(calculateRate)
-        setConvertedAmount((amount * calculateRate).toFixed(2))
+            const calculateRate = result?.rates[toCurrency]
+            setExchangeRate(calculateRate)
+            setConvertedAmount((amount * calculateRate).toFixed(2))
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     useEffect(() => {
@@ -55,7 +59,7 @@ export default function CurrencyConverter() {
                 </select>
             </div>
 
-            <p>To</p>
+            <p className='input-to'>To</p>
 
             <div className="input-container">
                 <input type="text" value={convertedAmount} readOnly />
@@ -67,7 +71,7 @@ export default function CurrencyConverter() {
                 </select>
             </div>
 
-            <p>Exchange rate : 1 {fromCurrency} = {exchangeRate} {toCurrency}</p>
+            <p className='exchange-rate'>Exchange rate : 1 {fromCurrency} = {exchangeRate} {toCurrency}</p>
         </div>
     )
 }
