@@ -1,0 +1,47 @@
+.converter-container {
+    width: 24%;
+    margin-top: var(--spacing);
+    text-align: center;
+    background-color: var(--outremer);
+    padding: var(--spacing-large);
+    color: var(--light-color);
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container input {
+    width: 80%;
+    padding: var(--spacing);
+    border: 1px solid var(--dark-color);
+    border-radius: var(--spacing);
+    font-size: 12px;
+    outline: none;
+    font-family: var(--secondary-font);
+}
+
+.input-container select {
+    padding: var(--spacing);
+    border: 1px solid var(--dark-color);
+    border-radius: var(--spacing);
+    font-size: 12px;
+    outline: none;
+    font-family: var(--secondary-font);
+}
+
+.input-to {
+    font-size: var(--spacing-medium);
+    margin: var(--spacing) 0;
+    font-family: var(--main-font);
+}
+
+.exchange-rate {
+    font-size: var(--spacing-medium);
+    margin-top: var(--spacing-medium);
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: var(--spacing-medium);
+}
